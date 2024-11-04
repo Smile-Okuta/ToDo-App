@@ -1,23 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ToDoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::get('/', [TodoListController::class, 'welcome'])->name('ToDo');
-
-Route::middleware(['auth:api'])->group(function () {
-    Route::get('/todoList', [TodoListController::class, 'index']);
-    Route::post('/todoList', [TodoListController::class, 'store']);
-    // Add other routes as needed
+// Home or welcome route (if needed)
+Route::get('/', function () {
+    return view('welcome');
 });
 
